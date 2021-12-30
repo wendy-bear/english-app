@@ -1,0 +1,16 @@
+table {
+  width: 850px;
+  margin: 20px;
+  border: 1px #32cd32 solid;
+}
+td {
+  padding-left: 20px;
+}
+thead td {
+  font-weight: bolder;
+  font-size: 20px;
+  color: #228b22;
+  text-align: center;
+  padding: 10px;
+  background-color: #ffa500;
+}

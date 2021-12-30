@@ -1,11 +1,14 @@
 import "./App.css";
-import wordbook from "./components/dictionary";
-import LearningWord from "./components/wordcard";
+import Footer from "./components/footerapp";
+import Header from "./components/headerapp";
+import Wordtable from "./components/mainapp";
 
 function App() {
   return (
     <div className="App">
-      <LearningWord></LearningWord>
+      <Header></Header>
+      <Wordtable></Wordtable>
+      <Footer></Footer>
     </div>
   );
 }
