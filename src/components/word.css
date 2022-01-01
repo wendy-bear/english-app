@@ -4,6 +4,7 @@
 .edit-btn {
   width: 30px;
   height: 30px;
+  margin: 2px;
 }
 .delete-btn {
   background-image: url(./delete.png);
@@ -20,4 +21,18 @@
 .edit-btn {
   background-image: url(./edit.png);
   background-size: contain;
+}
+
+.save-btn:hover {
+  border: 1px solid #ffa500;
+}
+
+.edit-btn:hover {
+  border: 1px solid #ffa500;
+}
+.cancel-btn:hover {
+  border: 1px solid #ffa500;
+}
+.delete-btn:hover {
+  border: 1px solid #ffa500;
 }
