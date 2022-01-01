@@ -1,1 +1,23 @@
-
+.save-btn,
+.delete-btn,
+.cancel-btn,
+.edit-btn {
+  width: 30px;
+  height: 30px;
+}
+.delete-btn {
+  background-image: url(./delete.png);
+  background-size: contain;
+}
+.save-btn {
+  background-image: url(./save.png);
+  background-size: contain;
+}
+.cancel-btn {
+  background-image: url(./cancel.png);
+  background-size: contain;
+}
+.edit-btn {
+  background-image: url(./edit.png);
+  background-size: contain;
+}

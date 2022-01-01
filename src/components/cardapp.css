@@ -1,0 +1,10 @@
+.card-wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 400px;
+  background-color: #ffffe0;
+  border-radius: 15px;
+}

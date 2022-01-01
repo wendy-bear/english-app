@@ -6,6 +6,7 @@ let wordbook = [
     russian: "праздник",
     tags: "праздники",
     tags_json: '["u043fu0440u0430u0437u0434u043du0438u043au0438"]',
+    //showSave: true,
   },
   {
     id: "10937",
