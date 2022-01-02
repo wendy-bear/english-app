@@ -4,7 +4,8 @@ table {
   border: 1px #32cd32 solid;
 }
 td {
-  padding-left: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 thead td {
   font-weight: bolder;
