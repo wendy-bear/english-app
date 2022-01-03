@@ -15,7 +15,17 @@ function Word({ english, russian, transcription, tags, id }) {
     showCancel(!cancel);
   };
 
-  // вход в режим просмотра доступен по функци на кнопке  handleSave
+  //вот тут value пропсов вынесены в стейты. с onchange не совсем понимаю, что должно меняться
+
+  let [englishDef, setEnglishDef] = useState({ english });
+
+  let [russianDef, setRussianDef] = useState({ russian });
+
+  let [transcriptionDef, setTranscriptionDef] = useState({ transcription });
+
+  let [tagsDef, setTagsDef] = useState({ tags });
+
+  // возврат в режим просмотра доступен по функци на кнопке  handleSave, то есть, тут как бы отмена редактирования, а не возврат
   //возможно схема работы этой кнопки должна была быть по собственному стейту(
 
   return (
