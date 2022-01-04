@@ -39,7 +39,7 @@ function Card({ english, russian, transcription, tags, id }) {
       <div className="card-transcription">{transcription}</div>
 
       <button onClick={handleReverse} className="card-reverse">
-        Проверить
+        {reverse ? "Скрыть" : "Проверить"}
       </button>
       {reverse ? <div className="card-translate">{russian}</div> : null}
     </div>

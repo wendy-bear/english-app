@@ -106,7 +106,7 @@ let wordbook = [
   },
   {
     id: "10977",
-    english: "мечта",
+    english: "dreаm",
     transcription: "[driːm]",
     russian: "мечта",
     tags: "чувства",
