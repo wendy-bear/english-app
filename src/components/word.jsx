@@ -5,17 +5,22 @@ import React, { useState } from "react";
 function Word({ english, russian, transcription, tags, id }) {
   let [save, showSave] = useState(false);
 
-  let handleSave = () => {
-    showSave(!save);
-  };
+  //на кнопке save будет другая функция? типа сохранить отредактированное или нет в массив?
 
-  let [cancel, showCancel] = useState(false);
+  //  let handleSave = () => {
+  //    showSave(false);
+  //  };
 
   let handleCancel = () => {
-    showCancel(!cancel);
+    showSave(false);
   };
 
-  //вот тут value пропсов вынесены в стейты. с onchange не совсем понимаю, что должно меняться. в консоль вывела измененное значение englishdef. опробовала такое на стейте с english
+  let handleEdit = () => {
+    showSave(true);
+  };
+
+  //вот тут value пропсов вынесены в стейты. добавила каждому инпуту свой onchange. редактировать строку дает
+  // при повторном входе в режим редактирования показывает измененный стейт каждого инпута - это так и должно быть? или что-то пошло не так?)
 
   let [englishDef, setEnglishDef] = useState(english);
 
@@ -25,11 +30,9 @@ function Word({ english, russian, transcription, tags, id }) {
 
   let [tagsDef, setTagsDef] = useState(tags);
 
-  // возврат в режим просмотра прописала в if cancel. то есть, мне заново рисует строку таблицы, но кнопка редактирования уже не работает
-  //возможно логика должна была быть другая))
   console.log(englishDef);
 
-  if (cancel) {
+  if (!save) {
     return (
       <tr>
         <td>{english}</td>
@@ -37,35 +40,46 @@ function Word({ english, russian, transcription, tags, id }) {
         <td>{transcription}</td>
         <td>{tags}</td>
         <td>
-          <button className="edit-btn" onClick={handleSave}></button>
+          <button className="edit-btn" onClick={handleEdit}></button>
           <button className="delete-btn"></button>
         </td>
       </tr>
     );
   }
 
+  //кнопка edit в режиме редактирования работать как бы не должна же? отменяется редактирование через cancel
+
   return (
     <tr>
       <td>
-        {save ? (
-          <input
-            defaultValue={englishDef}
-            onChange={(event) => setEnglishDef(event.target.value)}
-          />
-        ) : (
-          english
-        )}
+        <input
+          value={englishDef}
+          onChange={(event) => setEnglishDef(event.target.value)}
+        />
       </td>
-      <td>{save ? <input defaultValue={russian} /> : russian}</td>
-      <td>{save ? <input defaultValue={transcription} /> : transcription}</td>
-      <td>{save ? <input defaultValue={tags} /> : tags}</td>
       <td>
-        {save ? <button className="save-btn"></button> : null}
-        {save ? (
-          <button className="cancel-btn" onClick={handleCancel}></button>
-        ) : null}
+        <input
+          value={russianDef}
+          onChange={(event) => setRussianDef(event.target.value)}
+        />
+      </td>
+      <td>
+        <input
+          value={transcriptionDef}
+          onChange={(event) => setTranscriptionDef(event.target.value)}
+        />
+      </td>
+      <td>
+        <input
+          value={tagsDef}
+          onChange={(event) => setTagsDef(event.target.value)}
+        />
+      </td>
+      <td>
+        <button className="save-btn"></button>
+        <button className="cancel-btn" onClick={handleCancel}></button>
 
-        <button className="edit-btn" onClick={handleSave}></button>
+        <button className="edit-btn" onClick={handleEdit}></button>
         <button className="delete-btn"></button>
       </td>
     </tr>
