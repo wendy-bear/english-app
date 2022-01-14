@@ -36,3 +36,28 @@
   margin: 20px 0px 20px 0px;
   color: #228b22;
 }
+.element-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.card-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+.nav-btn {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  border: none;
+  background-image: url(./nav.png);
+  background-size: contain;
+  border-radius: 25px;
+}
+.nav-btn:hover {
+  border: 1px solid #ffa500;
+}
+.nav-left {
+  transform: rotate(180deg);
+}

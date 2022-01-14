@@ -5,14 +5,16 @@ import React, { useState } from "react";
 function Word({ english, russian, transcription, tags, id }) {
   let [save, showSave] = useState(false);
 
-  //на кнопке save будет другая функция? типа сохранить отредактированное или нет в массив?
-
-  //  let handleSave = () => {
-  //    showSave(false);
-  //  };
+  let handleSave = () => {
+    showSave(false);
+  };
 
   let handleCancel = () => {
     showSave(false);
+    setEnglishDef(english);
+    setRussianDef(russian);
+    setTranscriptionDef(transcription);
+    setTagsDef(tags);
   };
 
   let handleEdit = () => {
@@ -35,10 +37,10 @@ function Word({ english, russian, transcription, tags, id }) {
   if (!save) {
     return (
       <tr>
-        <td>{english}</td>
-        <td>{russian}</td>
-        <td>{transcription}</td>
-        <td>{tags}</td>
+        <td>{englishDef}</td>
+        <td>{russianDef}</td>
+        <td>{transcriptionDef}</td>
+        <td>{tagsDef}</td>
         <td>
           <button className="edit-btn" onClick={handleEdit}></button>
           <button className="delete-btn"></button>
@@ -76,7 +78,7 @@ function Word({ english, russian, transcription, tags, id }) {
         />
       </td>
       <td>
-        <button className="save-btn"></button>
+        <button className="save-btn" onClick={handleSave}></button>
         <button className="cancel-btn" onClick={handleCancel}></button>
 
         <button className="edit-btn" onClick={handleEdit}></button>
@@ -85,4 +87,5 @@ function Word({ english, russian, transcription, tags, id }) {
     </tr>
   );
 }
+
 export default Word;
