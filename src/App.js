@@ -12,9 +12,10 @@ function App() {
       <Wordtable></Wordtable>
 
       <Footer></Footer>
-      <Card {...wordbook[0]}></Card>
+
+      <Card {...wordbook[0]} />
     </div>
   );
 }
-
+//<Card {...wordbook[0]} />
 export default App;

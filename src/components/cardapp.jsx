@@ -14,6 +14,7 @@ function Card({ english, russian, transcription, tags, id }) {
   return (
     <div className="element-wrapper">
       <button className="nav-btn nav-left"></button>
+
       <div className="card-container">
         <div className="card-wrapper">
           <div className="card-word">{english}</div>
@@ -24,6 +25,7 @@ function Card({ english, russian, transcription, tags, id }) {
           </button>
           {reverse && <div className="card-translate">{russian}</div>}
         </div>
+
         <div className="card-numbers">/ {wordbook.length}</div>
       </div>
 
