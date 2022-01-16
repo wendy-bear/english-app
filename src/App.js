@@ -1,5 +1,6 @@
 import "./App.css";
 import Card from "./components/cardapp";
+import Cardlist from "./components/Cardlistapp";
 import wordbook from "./components/dictionary";
 import Footer from "./components/footerapp";
 import Header from "./components/headerapp";
@@ -13,9 +14,9 @@ function App() {
 
       <Footer></Footer>
 
-      <Card {...wordbook[0]} />
+      <Cardlist />
     </div>
   );
 }
-//<Card {...wordbook[0]} />
+
 export default App;
