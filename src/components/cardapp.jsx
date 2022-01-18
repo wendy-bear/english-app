@@ -1,6 +1,6 @@
 import "./cardapp.css";
 import wordbook from "./dictionary";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Card({ english, russian, transcription, tags, id }) {
   let [reverse, setReverse] = useState(false);
@@ -8,6 +8,10 @@ function Card({ english, russian, transcription, tags, id }) {
   let handleReverse = () => {
     setReverse(!reverse);
   };
+
+  useEffect(() => {
+    setReverse(false);
+  }, [id]);
 
   // заменила показ перевода на && (выводит элемент после &&, если условие true)
 

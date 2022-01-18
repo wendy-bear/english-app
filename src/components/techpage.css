@@ -1,0 +1,9 @@
+.notfound {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-image: url(./notfound.png);
+  margin: 50px;
+}
