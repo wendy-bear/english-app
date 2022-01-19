@@ -13,7 +13,6 @@ import {
   Outlet,
   Link,
 } from "react-router-dom";
-//import logoImg from "src/logo.png";
 
 function App() {
   return (
@@ -27,10 +26,12 @@ function App() {
           <Route path="game" element={<Cardlist />} />
 
           <Route path="tags" element={<NotFoundPage />} />
-          <Route path="/" element={<Wordtable />}></Route>
+          <Route exact path="/" element={<Wordtable />}></Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
+
+        <Footer />
       </Router>
-      <Footer />
     </div>
   );
 }
