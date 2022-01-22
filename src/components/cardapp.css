@@ -62,3 +62,9 @@
 .nav-left {
   transform: rotate(180deg);
 }
+.card-learned {
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: bolder;
+  color: #228b22;
+}
