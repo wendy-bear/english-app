@@ -14,11 +14,9 @@ function Card({
   let [reverse, setReverse] = useState(false);
 
   const ref = useRef();
-  useEffect(() => ref.current.focus(), [id]);
 
   let handleReverse = () => {
     setReverse(!reverse);
-    changeLearn();
   };
 
   // перерисовка карточки при смене id
@@ -26,8 +24,15 @@ function Card({
     setReverse(false);
   }, [id]);
 
-  // заменила показ перевода на && (выводит элемент после &&, если условие true)
+  useEffect(() => ref.current.addEventListener("click", changeLearn), [id]);
 
+  // нужно ли тут снятие обработчика кликов?
+  // useEffect(() => ref.current.removeEventListener("click", changeLearn), [id]);
+
+  // не понимаю, как фокус на кнопку повесить
+  useEffect(() => ref.current.focus(), [id]);
+
+  // выводит элемент после &&, если условие true)
   return (
     <div className="card-wrapper">
       <div className="card-word">{english}</div>
