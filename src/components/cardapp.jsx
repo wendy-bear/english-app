@@ -1,9 +1,20 @@
 import "./cardapp.css";
 import wordbook from "./dictionary";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-function Card({ english, russian, transcription, tags, id, changeLearn }) {
+function Card({
+  english,
+  russian,
+  transcription,
+  tags,
+  id,
+  changeLearn,
+  currentLearn,
+}) {
   let [reverse, setReverse] = useState(false);
+
+  const ref = useRef();
+  useEffect(() => ref.current.focus(), [id]);
 
   let handleReverse = () => {
     setReverse(!reverse);
@@ -22,11 +33,7 @@ function Card({ english, russian, transcription, tags, id, changeLearn }) {
       <div className="card-word">{english}</div>
       <div className="card-transcription">{transcription}</div>
 
-      <button
-        onClick={handleReverse}
-        className="card-reverse"
-        //onFocus={handleReverse}
-      >
+      <button onClick={handleReverse} className="card-reverse" ref={ref}>
         {reverse ? "Скрыть" : "Проверить"}
       </button>
       {reverse && <div className="card-translate">{russian}</div>}
