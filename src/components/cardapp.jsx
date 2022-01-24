@@ -17,6 +17,7 @@ function Card({
 
   let handleReverse = () => {
     setReverse(!reverse);
+    // ref.current.focus();
   };
 
   // перерисовка карточки при смене id
@@ -31,6 +32,7 @@ function Card({
 
   // не понимаю, как фокус на кнопку повесить
   useEffect(() => ref.current.focus(), [id]);
+  console.log(ref);
 
   // выводит элемент после &&, если условие true)
   return (
