@@ -15,9 +15,10 @@ function Card({
 
   const ref = useRef();
 
+  const reffocus = useRef();
+
   let handleReverse = () => {
     setReverse(!reverse);
-    // ref.current.focus();
   };
 
   // перерисовка карточки при смене id
@@ -31,8 +32,8 @@ function Card({
   // useEffect(() => ref.current.removeEventListener("click", changeLearn), [id]);
 
   // не понимаю, как фокус на кнопку повесить
-  useEffect(() => ref.current.focus(), [id]);
-  console.log(ref);
+  //useEffect(() => reffocus.current.focus(), [id]);
+  //console.log(reffocus);
 
   // выводит элемент после &&, если условие true)
   return (
@@ -40,7 +41,12 @@ function Card({
       <div className="card-word">{english}</div>
       <div className="card-transcription">{transcription}</div>
 
-      <button onClick={handleReverse} className="card-reverse" ref={ref}>
+      <button
+        onClick={handleReverse}
+        className="card-reverse"
+        ref={ref}
+        reffocus={reffocus}
+      >
         {reverse ? "Скрыть" : "Проверить"}
       </button>
       {reverse && <div className="card-translate">{russian}</div>}
