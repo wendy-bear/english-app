@@ -29,6 +29,8 @@ function Card({
 
   useEffect(() => ref.current.addEventListener("click", changeLearn), [id]);
 
+  console.log(ref);
+
   // нужно ли тут снятие обработчика кликов?
   // useEffect(() => ref.current.removeEventListener("click", changeLearn), [id]);
 
