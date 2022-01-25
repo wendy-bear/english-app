@@ -19,7 +19,6 @@ function Card({
     setReverse(!reverse);
   };
 
-  // не понимаю, как фокус на кнопку повесить
   useEffect(() => ref.current.focus(), [id]);
   console.log(ref);
 

@@ -23,9 +23,10 @@
   height: 30px;
   background-color: #ffa500;
   border-radius: 15px;
-  border: none;
+
   margin: 50px 0px 20px 0px;
   font-size: 20px;
+  box-sizing: content-box;
 }
 .card-reverse:hover {
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
@@ -67,4 +68,7 @@
   font-size: 25px;
   font-weight: bolder;
   color: #228b22;
+}
+.card-reverse:focus {
+  border: 2px solid #228b22;
 }
