@@ -76,6 +76,7 @@ function Word({ english, russian, transcription, tags, id }) {
           />
         </td>
         <td>
+          <button className="save-btn" onClick={handleSave} disabled></button>
           <button className="cancel-btn" onClick={handleCancel}></button>
           <button className="edit-btn" onClick={handleEdit}></button>
           <button className="delete-btn"></button>
