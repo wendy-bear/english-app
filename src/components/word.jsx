@@ -21,9 +21,6 @@ function Word({ english, russian, transcription, tags, id }) {
     showSave(true);
   };
 
-  //вот тут value пропсов вынесены в стейты. добавила каждому инпуту свой onchange. редактировать строку дает
-  // при повторном входе в режим редактирования показывает измененный стейт каждого инпута - это так и должно быть? или что-то пошло не так?)
-
   let [englishDef, setEnglishDef] = useState(english);
 
   let [russianDef, setRussianDef] = useState(russian);
@@ -31,8 +28,6 @@ function Word({ english, russian, transcription, tags, id }) {
   let [transcriptionDef, setTranscriptionDef] = useState(transcription);
 
   let [tagsDef, setTagsDef] = useState(tags);
-
-  console.log(englishDef);
 
   if (!save) {
     return (
@@ -49,7 +44,46 @@ function Word({ english, russian, transcription, tags, id }) {
     );
   }
 
-  //кнопка edit в режиме редактирования работать как бы не должна же? отменяется редактирование через cancel
+  if (!englishDef || !russianDef || !transcriptionDef || !tagsDef) {
+    return (
+      <tr>
+        <td>
+          <input
+            value={englishDef}
+            onChange={(event) => setEnglishDef(event.target.value)}
+            className={englishDef === "" && "error-inp"}
+          />
+        </td>
+        <td>
+          <input
+            value={russianDef}
+            onChange={(event) => setRussianDef(event.target.value)}
+            className={russianDef === "" && "error-inp"}
+          />
+        </td>
+        <td>
+          <input
+            value={transcriptionDef}
+            onChange={(event) => setTranscriptionDef(event.target.value)}
+            className={transcriptionDef === "" && "error-inp"}
+          />
+        </td>
+        <td>
+          <input
+            value={tagsDef}
+            onChange={(event) => setTagsDef(event.target.value)}
+            className={tagsDef === "" && "error-inp"}
+          />
+        </td>
+        <td>
+          <button className="save-btn" onClick={handleSave} disabled></button>
+          <button className="cancel-btn" onClick={handleCancel}></button>
+          <button className="edit-btn" onClick={handleEdit}></button>
+          <button className="delete-btn"></button>
+        </td>
+      </tr>
+    );
+  }
 
   return (
     <tr>
@@ -80,7 +114,6 @@ function Word({ english, russian, transcription, tags, id }) {
       <td>
         <button className="save-btn" onClick={handleSave}></button>
         <button className="cancel-btn" onClick={handleCancel}></button>
-
         <button className="edit-btn" onClick={handleEdit}></button>
         <button className="delete-btn"></button>
       </td>

@@ -37,3 +37,6 @@
 .delete-btn:hover {
   border: 1px solid #ffa500;
 }
+.error-inp {
+  border: 1px solid red;
+}
