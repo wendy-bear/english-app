@@ -51,32 +51,31 @@ function Word({ english, russian, transcription, tags, id }) {
           <input
             value={englishDef}
             onChange={(event) => setEnglishDef(event.target.value)}
-            className={englishDef === "" && "error-inp"}
+            className={englishDef === "" ? "error-inp" : null}
           />
         </td>
         <td>
           <input
             value={russianDef}
             onChange={(event) => setRussianDef(event.target.value)}
-            className={russianDef === "" && "error-inp"}
+            className={russianDef === "" ? "error-inp" : null}
           />
         </td>
         <td>
           <input
             value={transcriptionDef}
             onChange={(event) => setTranscriptionDef(event.target.value)}
-            className={transcriptionDef === "" && "error-inp"}
+            className={transcriptionDef === "" ? "error-inp" : null}
           />
         </td>
         <td>
           <input
             value={tagsDef}
             onChange={(event) => setTagsDef(event.target.value)}
-            className={tagsDef === "" && "error-inp"}
+            className={tagsDef === "" ? "error-inp" : null}
           />
         </td>
         <td>
-          <button className="save-btn" onClick={handleSave} disabled></button>
           <button className="cancel-btn" onClick={handleCancel}></button>
           <button className="edit-btn" onClick={handleEdit}></button>
           <button className="delete-btn"></button>
