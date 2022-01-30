@@ -9,41 +9,48 @@ function Card({
   tags,
   id,
   changeLearn,
-  currentLearn,
+  reverse,
+  setReverse,
+  //handleReverse,
 }) {
-  let [reverse, setReverse] = useState(false);
+  // let [reverse, setReverse] = useState(false);
 
   const ref = useRef();
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.focus();
+    }
+  });
 
   let handleReverse = () => {
-    setReverse(!reverse);
+    changeLearn();
   };
 
-  useEffect(() => ref.current.focus(), [id]);
-  console.log(ref);
-
   // перерисовка карточки при смене id
-  useEffect(() => {
-    setReverse(false);
-  }, [id]);
+  // useEffect(() => {
+  //   setReverse(false);
+  // }, [id]);
 
-  useEffect(() => ref.current.addEventListener("click", changeLearn), [id]);
+  //  useEffect(() => ref.current.addEventListener("click", handleReverse), [id]);
 
-  console.log(ref);
+  // код со старой кнопкой переворота
+  //  <button onClick={handleReverse} className="card-reverse" ref={ref}>
+  //    {reverse ? "Скрыть" : "Проверить"}
+  //  </button>
+  //  {reverse && <div className="card-translate">{russian}</div>}
 
-  // нужно ли тут снятие обработчика кликов?
-  // useEffect(() => ref.current.removeEventListener("click", changeLearn), [id]);
-
-  // выводит элемент после &&, если условие true)
   return (
     <div className="card-wrapper">
       <div className="card-word">{english}</div>
       <div className="card-transcription">{transcription}</div>
 
-      <button onClick={handleReverse} className="card-reverse" ref={ref}>
-        {reverse ? "Скрыть" : "Проверить"}
-      </button>
-      {reverse && <div className="card-translate">{russian}</div>}
+      {reverse ? (
+        <div className="card-translate">{russian}</div>
+      ) : (
+        <button onClick={handleReverse} className="card-reverse" ref={ref}>
+          Проверить
+        </button>
+      )}
     </div>
   );
 }
