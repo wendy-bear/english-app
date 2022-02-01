@@ -45,6 +45,7 @@ function Word({ english, russian, transcription, tags, id }) {
   }
 
   if (!englishDef || !russianDef || !transcriptionDef || !tagsDef) {
+    alert("Пустые поля!");
     return (
       <tr>
         <td>
