@@ -11,10 +11,7 @@ function Card({
   changeLearn,
   reverse,
   setReverse,
-  //handleReverse,
 }) {
-  // let [reverse, setReverse] = useState(false);
-
   const ref = useRef();
   useEffect(() => {
     if (ref.current) {
@@ -26,18 +23,7 @@ function Card({
     changeLearn();
   };
 
-  // перерисовка карточки при смене id
-  // useEffect(() => {
-  //   setReverse(false);
-  // }, [id]);
-
-  //  useEffect(() => ref.current.addEventListener("click", handleReverse), [id]);
-
-  // код со старой кнопкой переворота
-  //  <button onClick={handleReverse} className="card-reverse" ref={ref}>
-  //    {reverse ? "Скрыть" : "Проверить"}
-  //  </button>
-  //  {reverse && <div className="card-translate">{russian}</div>}
+  
 
   return (
     <div className="card-wrapper">

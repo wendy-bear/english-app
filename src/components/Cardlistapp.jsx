@@ -10,12 +10,6 @@ function Cardlist(changeLearn, id, reverse) {
 
   let [words, setWords] = useState(wordbook);
 
-  //  let [reverse, setReverse] = useState(false);
-
-  // let handleReverse = () => {
-  //    setReverse(!reverse);
-  // };
-
   changeLearn = () => {
     changeCurentLearn(currentLearn + 1);
 
@@ -38,14 +32,7 @@ function Cardlist(changeLearn, id, reverse) {
         <button className="nav-btn nav-left" onClick={changePrev}></button>
       )}
       <div className="card-container">
-        <Card
-          {...wordbook[currentIndex]}
-          id={id}
-          changeLearn={changeLearn}
-          //  reverse={reverse}
-          //  setReverse={setReverse}
-          // handleReverse={handleReverse}
-        />
+        <Card {...wordbook[currentIndex]} id={id} changeLearn={changeLearn} />
         <div className="card-numbers">
           {currentIndex + 1} / {words.length}
         </div>

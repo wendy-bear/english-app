@@ -35,16 +35,3 @@ function Header() {
 }
 
 export default Header;
-//<nav>
-//<Link to="/wordtable">
-//<button>Список слов</button>
-//</Link>
-
-//<Link to="/game">
-//<button>Учиться!</button>
-//</Link>
-
-//<Link to="/tags">
-//<button>Темы</button>
-//</Link>
-//</nav>

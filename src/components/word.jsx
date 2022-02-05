@@ -5,6 +5,14 @@ import React, { useState } from "react";
 function Word({ english, russian, transcription, tags, id }) {
   let [save, showSave] = useState(false);
 
+  let [englishDef, setEnglishDef] = useState(english);
+
+  let [russianDef, setRussianDef] = useState(russian);
+
+  let [transcriptionDef, setTranscriptionDef] = useState(transcription);
+
+  let [tagsDef, setTagsDef] = useState(tags);
+
   let handleSave = () => {
     showSave(false);
   };
@@ -20,14 +28,6 @@ function Word({ english, russian, transcription, tags, id }) {
   let handleEdit = () => {
     showSave(true);
   };
-
-  let [englishDef, setEnglishDef] = useState(english);
-
-  let [russianDef, setRussianDef] = useState(russian);
-
-  let [transcriptionDef, setTranscriptionDef] = useState(transcription);
-
-  let [tagsDef, setTagsDef] = useState(tags);
 
   if (!save) {
     return (
