@@ -38,5 +38,6 @@
   border: 1px solid #ffa500;
 }
 .error-inp {
-  border: 1px solid red;
+  outline: red auto 1px;
 }
+/*border: 1px solid red;*/
