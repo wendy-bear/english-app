@@ -13,25 +13,28 @@ import {
   Outlet,
   Link,
 } from "react-router-dom";
+import { WordContext, WordContextProvider } from "./components/wordscontext";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header />
+      <WordContextProvider>
+        <Router>
+          <Header />
 
-        <Routes>
-          <Route index element={<Wordtable />} />
-          <Route path="wordtable" element={<Wordtable />} />
-          <Route path="game" element={<Cardlist />} />
+          <Routes>
+            <Route index element={<Wordtable />} />
+            <Route path="wordtable" element={<Wordtable />} />
+            <Route path="game" element={<Cardlist />} />
 
-          <Route path="tags" element={<NotFoundPage />} />
-          <Route exact path="/" element={<Wordtable />}></Route>
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+            <Route path="tags" element={<NotFoundPage />} />
+            <Route exact path="/" element={<Wordtable />}></Route>
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
 
-        <Footer />
-      </Router>
+          <Footer />
+        </Router>
+      </WordContextProvider>
     </div>
   );
 }
