@@ -1,14 +1,18 @@
 import Card from "./cardapp";
 import "./cardapp.css";
 import wordbook from "./dictionary";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
+import { WordContext } from "./wordscontext";
 
 function Cardlist(changeLearn, id, reverse) {
+  const wordapiProp = useContext(WordContext);
+
   let [currentIndex, changeCurentIndex] = useState(0);
 
   let [currentLearn, changeCurentLearn] = useState(0);
 
-  let [words, setWords] = useState(wordbook);
+  // let [words, setWords] = useState(wordbook);
+  let [words, setWords] = useState(wordapiProp);
 
   changeLearn = () => {
     changeCurentLearn(currentLearn + 1);
@@ -25,6 +29,7 @@ function Cardlist(changeLearn, id, reverse) {
   function changePrev() {
     changeCurentIndex(currentIndex - 1);
   }
+  console.log(wordapiProp);
 
   return (
     <div className="element-wrapper">
@@ -32,7 +37,11 @@ function Cardlist(changeLearn, id, reverse) {
         <button className="nav-btn nav-left" onClick={changePrev}></button>
       )}
       <div className="card-container">
-        <Card {...wordbook[currentIndex]} id={id} changeLearn={changeLearn} />
+        <Card
+          {...wordapiProp[currentIndex]}
+          id={id}
+          changeLearn={changeLearn}
+        />
         <div className="card-numbers">
           {currentIndex + 1} / {words.length}
         </div>

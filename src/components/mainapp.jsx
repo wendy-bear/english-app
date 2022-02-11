@@ -1,8 +1,12 @@
 import "./mainapp.css";
 import wordbook from "./dictionary";
 import Word from "./word";
+import { WordContext } from "./wordscontext";
+import { useContext } from "react";
 
 function Wordtable() {
+  const wordapiProp = useContext(WordContext);
+
   return (
     <table border="1px">
       <thead>
@@ -15,7 +19,7 @@ function Wordtable() {
         </tr>
       </thead>
       <tbody>
-        {wordbook.map((item) => {
+        {wordapiProp.map((item) => {
           return <Word {...item} key={item.id} />;
         })}
       </tbody>

@@ -13,12 +13,12 @@ import {
   Outlet,
   Link,
 } from "react-router-dom";
-import { WordContext, WordContextProvider } from "./components/wordscontext";
+import { WordContextProvider } from "./components/wordscontext";
 
 function App() {
   return (
-    <div className="App">
-      <WordContextProvider>
+    <WordContextProvider>
+      <div className="App">
         <Router>
           <Header />
 
@@ -34,8 +34,8 @@ function App() {
 
           <Footer />
         </Router>
-      </WordContextProvider>
-    </div>
+      </div>
+    </WordContextProvider>
   );
 }
 

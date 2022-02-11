@@ -1,6 +1,7 @@
 import "./cardapp.css";
 import wordbook from "./dictionary";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { WordContext } from "./wordscontext";
 
 function Card({
   english,
@@ -12,6 +13,8 @@ function Card({
   reverse,
   setReverse,
 }) {
+  const wordapiProp = useContext(WordContext);
+
   const ref = useRef();
   useEffect(() => {
     if (ref.current) {
@@ -22,8 +25,6 @@ function Card({
   let handleReverse = () => {
     changeLearn();
   };
-
-  
 
   return (
     <div className="card-wrapper">
