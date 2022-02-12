@@ -29,6 +29,8 @@ function Word({ english, russian, transcription, tags, id }) {
     showSave(true);
   };
 
+  console.log(id);
+
   if (!save) {
     return (
       <tr>

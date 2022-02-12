@@ -7,6 +7,8 @@ import { WordContext } from "./wordscontext";
 function Cardlist(changeLearn, id, reverse) {
   const wordapiProp = useContext(WordContext);
 
+  console.log(wordapiProp);
+
   let [currentIndex, changeCurentIndex] = useState(0);
 
   let [currentLearn, changeCurentLearn] = useState(0);
@@ -29,7 +31,6 @@ function Cardlist(changeLearn, id, reverse) {
   function changePrev() {
     changeCurentIndex(currentIndex - 1);
   }
-  console.log(wordapiProp);
 
   return (
     <div className="element-wrapper">

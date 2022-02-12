@@ -41,3 +41,8 @@
   outline: red auto 1px;
 }
 /*border: 1px solid red;*/
+.loading {
+  font-size: 35px;
+  color: #228b22;
+  text-align: center;
+}

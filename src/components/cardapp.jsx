@@ -2,6 +2,7 @@ import "./cardapp.css";
 import wordbook from "./dictionary";
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { WordContext } from "./wordscontext";
+import Wordtable from "./mainapp";
 
 function Card({
   english,
@@ -11,7 +12,7 @@ function Card({
   id,
   changeLearn,
   reverse,
-  setReverse,
+  //  setReverse,
 }) {
   const wordapiProp = useContext(WordContext);
 
