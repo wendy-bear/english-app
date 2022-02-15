@@ -1,0 +1,39 @@
+.form-wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  width: 30%;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: 20px;
+  border: 5px solid #228b22;
+  border-radius: 15%;
+}
+.form-wrapper p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #228b22;
+  margin: 15px 0px 5px 0px;
+}
+.add-btn {
+  width: 200px;
+  height: 30px;
+  background-color: #ffa500;
+  border-radius: 15px;
+  margin: 30px 0px 20px 0px;
+  font-size: 20px;
+  box-sizing: content-box;
+}
+.add-btn:hover {
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+.input-form {
+  width: 250px;
+  height: 20px;
+}
+.input-error {
+  outline: red auto 1px;
+}
+.errorInp {
+  color: red;
+}

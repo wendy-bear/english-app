@@ -14,6 +14,7 @@ import {
   Link,
 } from "react-router-dom";
 import { WordContextProvider } from "./components/wordscontext";
+import AddNewWords from "./components/form";
 
 function App() {
   return (
@@ -27,8 +28,8 @@ function App() {
             <Route path="wordtable" element={<Wordtable />} />
             <Route path="game" element={<Cardlist />} />
 
-            <Route path="tags" element={<NotFoundPage />} />
-            <Route exact path="/" element={<Wordtable />}></Route>
+            <Route path="add" element={<AddNewWords />} />
+            <Route exact path="/" element={<Wordtable />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
 

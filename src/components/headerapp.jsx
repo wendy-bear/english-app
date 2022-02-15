@@ -15,7 +15,7 @@ function Header() {
         <h1>Learnglish</h1>
 
         <Link to="/">
-          <img src={logoImg} alt="" />
+          <img src={logoImg} alt="лого" />
         </Link>
 
         <nav>
@@ -25,8 +25,8 @@ function Header() {
           <Link to="/game">
             <button>Учиться!</button>
           </Link>
-          <Link to="/tags">
-            <button>Темы</button>
+          <Link to="/add">
+            <button>Добавить слово</button>
           </Link>
         </nav>
       </header>
