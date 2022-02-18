@@ -5,13 +5,13 @@ function AddNewWords() {
   return (
     <div className="form-wrapper">
       <p>English:</p>
-      <InputNew />
+      <InputNew value="" />
       <p>Перевод:</p>
-      <InputNew />
+      <InputNew value="" />
       <p>Транскрипция:</p>
-      <InputNew />
+      <InputNew value="" />
       <p> Категория:</p>
-      <InputNew />
+      <InputNew value="" />
       <button className="add-btn">Добавить</button>
     </div>
   );

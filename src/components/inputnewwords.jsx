@@ -18,19 +18,6 @@ function InputNew(props) {
     }
   }
 
-  // function validateInput(inputValue) {
-  //    setValue(inputValue);
-  //    if (inputValue === "") {
-  //      setErrorInp("Нельзя пустую строку использовать");
-  //    }
-  //else if (props.onValidate && !props.onValidate(inputValue)) {
-  // setErrorInp("Неправильный формат ввода данных");
-  //}
-  //    else {
-  //      setErrorInp("");
-  //   }
-  //  }
-
   useEffect(() => {
     validateForm(value);
   }, []);
