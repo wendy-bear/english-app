@@ -1,6 +1,7 @@
 import "./form.css";
 import InputNew from "./inputnewwords";
 import { regexRu, regexEng } from "./helpers.js";
+import { useState, useEffect } from "react";
 
 function AddNewWords(props) {
   function onValidateEng(inputValue) {

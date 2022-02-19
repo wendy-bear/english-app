@@ -22,9 +22,9 @@ function InputNew(props) {
     }
   }
 
-  //  useEffect(() => {
-  //    validateForm(value);
-  // }, []);
+  useEffect(() => {
+    validateForm(value);
+  }, []);
 
   let className = "input-form";
   if (errorInp) {
