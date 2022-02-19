@@ -10,8 +10,15 @@ export function WordContextProvider(props) {
 
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    setIsLoading(!isLoading);
+  //подняли в контекст функцию переворота карточки по ее колбек-индексу в массиве с сервера
+  function reverseCard(currentIndex) {
+    let newWords = [...wordapi];
+    newWords[currentIndex].reverse = true;
+    setWordApi(newWords);
+  }
+
+  function loadingData() {
+    setIsLoading(true);
     try {
       fetch("http://itgirlschool.justmakeit.ru/api/words")
         .then((response) => {
@@ -24,17 +31,21 @@ export function WordContextProvider(props) {
         })
 
         .then((data) => {
-          setIsLoading(isLoading);
+          setIsLoading(false);
           setWordApi(data);
           console.log(data);
         });
     } catch (error) {
       setError(error);
+      setIsLoading(false);
     }
-  }, []);
+  }
 
-  // console.log(wordapi);
-  // wordapi объект
+  function sendNewWords(createNewWord) {}
+
+  useEffect(() => {
+    loadingData();
+  }, []);
 
   if (error) {
     return <p className="loading">{error.message}</p>;
@@ -43,10 +54,16 @@ export function WordContextProvider(props) {
   if (isLoading) {
     return <p className="loading">Loading ...</p>;
   }
-
+  //value атрибут, но туда передаем объект с ключами
   return (
     <div>
-      <WordContext.Provider value={wordapi}>
+      <WordContext.Provider
+        value={{
+          wordapi: wordapi,
+          reverseCard: reverseCard,
+          sendNewWord: sendNewWords,
+        }}
+      >
         {props.children}
       </WordContext.Provider>
     </div>

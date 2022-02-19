@@ -5,24 +5,22 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { WordContext } from "./wordscontext";
 
 function Cardlist(changeLearn, id, reverse) {
-  const wordapiProp = useContext(WordContext);
+  const context = useContext(WordContext);
+  const wordapi = context.wordapi;
+  const reverseCard = context.reverseCard;
 
-  console.log(wordapiProp);
+  // console.log(wordapiProp);
 
   let [currentIndex, changeCurentIndex] = useState(0);
 
   let [currentLearn, changeCurentLearn] = useState(0);
 
   // let [words, setWords] = useState(wordbook);
-  let [words, setWords] = useState(wordapiProp);
+  // let [words, setWords] = useState(wordapiProp);
 
   changeLearn = () => {
     changeCurentLearn(currentLearn + 1);
-
-    let newWords = [...words];
-    newWords[currentIndex].reverse = true;
-    setWords(newWords);
-    console.log(newWords);
+    reverseCard(currentIndex);
   };
 
   function changeNext() {
@@ -38,17 +36,13 @@ function Cardlist(changeLearn, id, reverse) {
         <button className="nav-btn nav-left" onClick={changePrev}></button>
       )}
       <div className="card-container">
-        <Card
-          {...wordapiProp[currentIndex]}
-          id={id}
-          changeLearn={changeLearn}
-        />
+        <Card {...wordapi[currentIndex]} id={id} changeLearn={changeLearn} />
         <div className="card-numbers">
-          {currentIndex + 1} / {words.length}
+          {currentIndex + 1} / {wordapi.length}
         </div>
         <div className="card-learned">Вы изучили {currentLearn} слов</div>
       </div>
-      {currentIndex === words.length - 1 ? null : (
+      {currentIndex === wordapi.length - 1 ? null : (
         <button className="nav-btn" onClick={changeNext}></button>
       )}
     </div>

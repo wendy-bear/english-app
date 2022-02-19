@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 function InputNew(props) {
   const [value, setValue] = useState(props.value);
   const [errorInp, setErrorInp] = useState("");
+  const name = props.name;
 
   function handleInputForm(event) {
     validateForm(event.target.value);
@@ -22,9 +23,9 @@ function InputNew(props) {
     }
   }
 
-  useEffect(() => {
-    validateForm(value);
-  }, []);
+  // useEffect(() => {
+  //   validateForm(value);
+  // }, []);
 
   let className = "input-form";
   if (errorInp) {
@@ -33,7 +34,12 @@ function InputNew(props) {
 
   return (
     <>
-      <input value={value} onChange={handleInputForm} className={className} />
+      <input
+        value={value}
+        onChange={handleInputForm}
+        className={className}
+        name={name}
+      />
       <div className="errorInp">{errorInp}</div>
     </>
   );

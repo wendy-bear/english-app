@@ -5,7 +5,8 @@ import { WordContext } from "./wordscontext";
 import { useContext } from "react";
 
 function Wordtable() {
-  const wordapiProp = useContext(WordContext);
+  const context = useContext(WordContext);
+  const wordapi = context.wordapi;
 
   return (
     <table border="1px">
@@ -19,7 +20,7 @@ function Wordtable() {
         </tr>
       </thead>
       <tbody>
-        {wordapiProp.map((item) => {
+        {wordapi.map((item) => {
           return <Word {...item} key={item.id} />;
         })}
       </tbody>

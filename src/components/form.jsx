@@ -1,7 +1,8 @@
 import "./form.css";
 import InputNew from "./inputnewwords";
 import { regexRu, regexEng } from "./helpers.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { WordContext } from "./wordscontext";
 
 function AddNewWords(props) {
   function onValidateEng(inputValue) {
@@ -10,7 +11,6 @@ function AddNewWords(props) {
     }
 
     if (regexEng.test(inputValue)) {
-      // return true;
     } else if (regexRu.test(inputValue)) {
       return false;
     }
@@ -24,7 +24,6 @@ function AddNewWords(props) {
     }
 
     if (regexRu.test(inputValue)) {
-      // return true;
     } else if (regexEng.test(inputValue)) {
       return false;
     }
@@ -32,17 +31,45 @@ function AddNewWords(props) {
     return true;
   }
 
+  const context = useContext(WordContext);
+
+  function onSubmitForm(e) {
+    e.preventDefault();
+    const formNewWord = new FormData(e.target);
+
+    const createNewWord = {
+      english: formNewWord.get("english"),
+      russian: formNewWord.get("russian"),
+      transcription: formNewWord.get("transcription"),
+      tags: formNewWord.get("tags"),
+    };
+
+    context.sendNewWords(createNewWord);
+  }
+
   return (
     <div className="form-wrapper">
-      <p>English:</p>
-      <InputNew regexEng={regexEng} onValidateEng={onValidateEng} value="" />
-      <p>Перевод:</p>
-      <InputNew regexRu={regexRu} onValidateRu={onValidateRu} value="" />
-      <p>Транскрипция:</p>
-      <InputNew value="" />
-      <p> Категория:</p>
-      <InputNew value="" />
-      <button className="add-btn">Добавить</button>
+      <form onSubmit={onSubmitForm}>
+        <p>English:</p>
+        <InputNew
+          regexEng={regexEng}
+          onValidateEng={onValidateEng}
+          value=""
+          name="english"
+        />
+        <p>Перевод:</p>
+        <InputNew
+          regexRu={regexRu}
+          onValidateRu={onValidateRu}
+          value=""
+          name="russian"
+        />
+        <p>Транскрипция:</p>
+        <InputNew value="" name="transcription" />
+        <p> Категория:</p>
+        <InputNew value="" name="tags" />
+        <button className="add-btn">Добавить</button>
+      </form>
     </div>
   );
 }
