@@ -13,14 +13,18 @@ function InputNew(props) {
     setValue(inputValue);
     if (inputValue === "") {
       setErrorInp("Заполните поле!");
+    } else if (props.onValidateEng && !props.onValidateEng(inputValue)) {
+      setErrorInp("Неправильный формат ввода данных");
+    } else if (props.onValidateRu && !props.onValidateRu(inputValue)) {
+      setErrorInp("Неправильный формат ввода данных");
     } else {
       setErrorInp("");
     }
   }
 
-  useEffect(() => {
-    validateForm(value);
-  }, []);
+  //  useEffect(() => {
+  //    validateForm(value);
+  // }, []);
 
   let className = "input-form";
   if (errorInp) {
