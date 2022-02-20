@@ -40,8 +40,19 @@ export function WordContextProvider(props) {
       setIsLoading(false);
     }
   }
+  //добавление нового слова
+  async function sendNewWords(createNewWord) {
+    let response = await fetch("/api/words/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(createNewWord),
+    });
 
-  function sendNewWords(createNewWord) {}
+    let result = await response.json();
+    console.log(result);
+  }
 
   useEffect(() => {
     loadingData();
@@ -61,7 +72,7 @@ export function WordContextProvider(props) {
         value={{
           wordapi: wordapi,
           reverseCard: reverseCard,
-          sendNewWord: sendNewWords,
+          sendNewWords: sendNewWords,
         }}
       >
         {props.children}

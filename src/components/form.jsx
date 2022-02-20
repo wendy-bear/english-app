@@ -5,6 +5,9 @@ import { useState, useEffect, useContext } from "react";
 import { WordContext } from "./wordscontext";
 
 function AddNewWords(props) {
+  const context = useContext(WordContext);
+  const sendNewWords = context.sendNewWords;
+
   function onValidateEng(inputValue) {
     if (inputValue.length < 1) {
       return false;
@@ -31,8 +34,6 @@ function AddNewWords(props) {
     return true;
   }
 
-  const context = useContext(WordContext);
-
   function onSubmitForm(e) {
     e.preventDefault();
     const formNewWord = new FormData(e.target);
@@ -44,7 +45,7 @@ function AddNewWords(props) {
       tags: formNewWord.get("tags"),
     };
 
-    context.sendNewWords(createNewWord);
+    sendNewWords(createNewWord);
   }
 
   return (

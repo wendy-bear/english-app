@@ -9,14 +9,9 @@ function Cardlist(changeLearn, id, reverse) {
   const wordapi = context.wordapi;
   const reverseCard = context.reverseCard;
 
-  // console.log(wordapiProp);
-
   let [currentIndex, changeCurentIndex] = useState(0);
 
   let [currentLearn, changeCurentLearn] = useState(0);
-
-  // let [words, setWords] = useState(wordbook);
-  // let [words, setWords] = useState(wordapiProp);
 
   changeLearn = () => {
     changeCurentLearn(currentLearn + 1);
