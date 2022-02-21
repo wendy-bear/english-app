@@ -42,15 +42,16 @@ export function WordContextProvider(props) {
   }
   //добавление нового слова
   async function sendNewWords(createNewWord) {
-    let response = await fetch("/api/words/add", {
+    let data = await fetch("/api/words/add", {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(createNewWord),
     });
 
-    let result = await response.json();
+    let result = await data.json();
     console.log(result);
   }
 

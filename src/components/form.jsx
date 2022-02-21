@@ -1,7 +1,7 @@
 import "./form.css";
 import InputNew from "./inputnewwords";
 import { regexRu, regexEng } from "./helpers.js";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { WordContext } from "./wordscontext";
 
 function AddNewWords(props) {
