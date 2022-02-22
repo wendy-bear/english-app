@@ -22,9 +22,13 @@ function Word({
 
   let [tagsDef, setTagsDef] = useState(tags);
 
+  //стейты редактируемых элементов
+  const [editId, setEditId] = useState(null);
+
   let handleSave = () => {
     showSave(false);
     updateItem(id);
+    setEditId(id);
   };
 
   let handleCancel = () => {
