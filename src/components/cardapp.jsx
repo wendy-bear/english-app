@@ -14,8 +14,6 @@ function Card({
   reverse,
   //  setReverse,
 }) {
-  const wordapiProp = useContext(WordContext);
-
   const ref = useRef();
   useEffect(() => {
     if (ref.current) {

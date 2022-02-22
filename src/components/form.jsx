@@ -8,6 +8,8 @@ function AddNewWords(props) {
   const context = useContext(WordContext);
   const sendNewWords = context.sendNewWords;
 
+  let [send, setSend] = useState(false);
+
   function onValidateEng(inputValue) {
     if (inputValue.length < 1) {
       return false;
@@ -48,6 +50,10 @@ function AddNewWords(props) {
     sendNewWords(createNewWord);
   }
 
+  function handleSend() {
+    setSend(!send);
+  }
+
   return (
     <div className="form-wrapper">
       <form onSubmit={onSubmitForm}>
@@ -57,6 +63,7 @@ function AddNewWords(props) {
           onValidateEng={onValidateEng}
           value=""
           name="english"
+          // handleClear={handleClear}
         />
         <p>Перевод:</p>
         <InputNew
@@ -69,7 +76,16 @@ function AddNewWords(props) {
         <InputNew value="" name="transcription" />
         <p> Категория:</p>
         <InputNew value="" name="tags" />
-        <button className="add-btn">Добавить</button>
+
+        {!send ? (
+          <button className="add-btn" onClick={handleSend}>
+            Добавить
+          </button>
+        ) : (
+          <button className="add-btn" disabled>
+            Добавлено
+          </button>
+        )}
       </form>
     </div>
   );

@@ -23,6 +23,12 @@ function InputNew(props) {
     }
   }
 
+  //очистка формы после отправки
+  //  const handleClear = (e) => {
+  //    e.preventDefault();
+  //    setValue("");
+  ////  };
+
   // useEffect(() => {
   //   validateForm(value);
   // }, []);
@@ -39,6 +45,7 @@ function InputNew(props) {
         onChange={handleInputForm}
         className={className}
         name={name}
+        //  handleClear={handleClear}
       />
       <div className="errorInp">{errorInp}</div>
     </>
