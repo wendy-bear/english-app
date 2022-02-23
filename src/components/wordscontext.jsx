@@ -9,7 +9,7 @@ export function WordContextProvider(props) {
   const [isLoading, setIsLoading] = useState(false);
 
   const [error, setError] = useState(null);
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("Вы удалили слово!");
 
   //подняли в контекст функцию переворота карточки по ее колбек-индексу в массиве с сервера
   function reverseCard(currentIndex) {
@@ -61,7 +61,7 @@ export function WordContextProvider(props) {
     fetch("api/words/" + id + "/delete", {
       method: "POST",
     });
-    setStatus("Вы удалили слово!");
+    setStatus(status);
     alert(status);
     setWordApi(wordapi.filter((item) => item.id !== id));
   }
@@ -71,13 +71,11 @@ export function WordContextProvider(props) {
     fetch("api/words/" + id + "/update", {
       method: "POST",
     });
-    setStatus("Delete successful");
-    setWordApi(wordapi.filter((item) => item.id !== id));
+    setStatus("вы изменили слово");
   }
 
   useEffect(() => {
     loadingData();
-    removeItem();
   }, []);
 
   if (error) {
@@ -97,6 +95,7 @@ export function WordContextProvider(props) {
           sendNewWords: sendNewWords,
           removeItem: removeItem,
           updateItem: updateItem,
+          setWordApi: setWordApi,
         }}
       >
         {props.children}

@@ -22,13 +22,17 @@ function Word({
 
   let [tagsDef, setTagsDef] = useState(tags);
 
-  //стейты редактируемых элементов
-  const [editId, setEditId] = useState(null);
+  const context = useContext(WordContext);
+  const wordapi = context.wordapi;
+  console.log(wordapi);
+
+  //редактируемые id
+  const [editId, setEditId] = useState("");
+  console.log(editId);
 
   let handleSave = () => {
     showSave(false);
     updateItem(id);
-    setEditId(id);
   };
 
   let handleCancel = () => {
@@ -41,12 +45,12 @@ function Word({
 
   let handleEdit = () => {
     showSave(true);
+    setEditId(id);
   };
+
   let handleDelete = () => {
     removeItem(id);
   };
-
-  // console.log(id);
 
   if (!save) {
     return (
@@ -99,7 +103,7 @@ function Word({
           <button className="save-btn" onClick={handleSave} disabled></button>
           <button className="cancel-btn" onClick={handleCancel}></button>
           <button className="edit-btn" onClick={handleEdit}></button>
-          <button className="delete-btn"></button>
+          <button className="delete-btn" onClick={handleDelete}></button>
         </td>
       </tr>
     );
@@ -135,7 +139,7 @@ function Word({
         <button className="save-btn" onClick={handleSave}></button>
         <button className="cancel-btn" onClick={handleCancel}></button>
         <button className="edit-btn" onClick={handleEdit}></button>
-        <button className="delete-btn"></button>
+        <button className="delete-btn" onClick={handleDelete}></button>
       </td>
     </tr>
   );

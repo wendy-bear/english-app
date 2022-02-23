@@ -2,13 +2,14 @@ import "./mainapp.css";
 import wordbook from "./dictionary";
 import Word from "./word";
 import { WordContext } from "./wordscontext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 function Wordtable() {
   const context = useContext(WordContext);
   const wordapi = context.wordapi;
   const removeItem = context.removeItem;
   const updateItem = context.updateItem;
+  // const setWordApi = context.setWordApi;
 
   return (
     <table border="1px">
@@ -29,6 +30,7 @@ function Wordtable() {
               key={item.id}
               removeItem={removeItem}
               updateItem={updateItem}
+              // setWordApi={setWordApi}
             />
           );
         })}

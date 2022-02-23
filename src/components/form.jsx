@@ -48,9 +48,6 @@ function AddNewWords(props) {
     };
 
     sendNewWords(createNewWord);
-  }
-
-  function handleSend() {
     setSend(!send);
   }
 
@@ -63,7 +60,6 @@ function AddNewWords(props) {
           onValidateEng={onValidateEng}
           value=""
           name="english"
-          // handleClear={handleClear}
         />
         <p>Перевод:</p>
         <InputNew
@@ -78,11 +74,9 @@ function AddNewWords(props) {
         <InputNew value="" name="tags" />
 
         {!send ? (
-          <button className="add-btn" onClick={handleSend}>
-            Добавить
-          </button>
+          <button className="add-btn">Добавить</button>
         ) : (
-          <button className="add-btn" disabled>
+          <button className="add-btn send" disabled>
             Добавлено
           </button>
         )}
