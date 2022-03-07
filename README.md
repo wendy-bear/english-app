@@ -1,4 +1,4 @@
-Приложение для изучения английских слов <b>Learnglish</b>
+Приложение для изучения английских слов <b>Learnglish</b> <br>
 https://wendy-bear.github.io/english-app/
 
 Реализовано:
