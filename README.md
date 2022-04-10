@@ -1,5 +1,5 @@
 Приложение для изучения английских слов <b>Learnglish</b> <br>
-https://wendy-bear.github.io/game
+https://github.com/wendy-bear/english-app
 
 Реализовано:
 - Отображение списка слов в таблице,
