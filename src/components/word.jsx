@@ -2,7 +2,7 @@ import "./word.css";
 import wordbook from "./dictionary";
 import React, { useState } from "react";
 
-function Word({ english, russian, transcription, tags, id }) {
+function Word({ english, russian, transcription, tags, id, removeItem }) {
   let [save, showSave] = useState(false);
 
   let [englishDef, setEnglishDef] = useState(english);
@@ -29,6 +29,11 @@ function Word({ english, russian, transcription, tags, id }) {
     showSave(true);
   };
 
+  let handleDelete = () => {
+    removeItem(id);
+    console.log(id);
+  };
+
   if (!save) {
     return (
       <tr>
@@ -38,7 +43,7 @@ function Word({ english, russian, transcription, tags, id }) {
         <td>{tagsDef}</td>
         <td>
           <button className="edit-btn" onClick={handleEdit}></button>
-          <button className="delete-btn"></button>
+          <button className="delete-btn" onClick={handleDelete}></button>
         </td>
       </tr>
     );
